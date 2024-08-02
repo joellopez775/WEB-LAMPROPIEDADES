@@ -1,0 +1,7 @@
+#14226b azul
+
+#eace9d dorado
+
+
+
+bacjground transpar:  background-color: rgba(20, 34, 107, 0.3);
