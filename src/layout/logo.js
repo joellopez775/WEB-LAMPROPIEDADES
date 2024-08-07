@@ -8,8 +8,8 @@ const Logo = styled.img`
   max-width: 300px;
   max-height: 300px;
   position: absolute; /* Asegura que el logo esté posicionado absolutamente */
-  top: -0.4rem; /* Ajusta esto según sea necesario */
-  left:0.8; /* Puedes ajustar esto si quieres que el logo esté alineado a la izquierda, o cambiar a center si es necesario */
+  top: -2.6rem; /* Ajusta esto según sea necesario */
+  left: 9rem; /* Asegúrate de que haya una unidad de medida, como "rem" */
   object-fit: contain;
   object-position: center;
 `;

@@ -189,7 +189,7 @@ export default () => {
         <Row className="align-items-center">
           <Col xs={{ span: 6, order: 6 }} md={{ span: 6, order: 0 }} lg={4}>
             <AniLink  to="/" duration={.5}>
-              <Logo dark />
+              <Logo />
             </AniLink>
             <InfoList>
               {

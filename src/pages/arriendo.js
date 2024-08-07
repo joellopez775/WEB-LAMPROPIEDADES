@@ -11,7 +11,6 @@ export default ()=> {
     <Fragment>
       <Hero />
       <Properties />
-      <Reviews />
       <Contact />
     </Fragment>
   )

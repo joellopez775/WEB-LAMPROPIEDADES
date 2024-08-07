@@ -6,6 +6,8 @@ import { Section } from '../../styled-components';
 import FormProperty from '../forms/properties'
 
 const MainCont = styled(Section)`
+  background-image: linear-gradient(white, #eace9d), url("${props => props.src}");
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +19,8 @@ export default ()=> {
   return(
     <MainCont 
       first
-      height="50vh"
+      height="30vh"
+      
     >
       <Container>
         <FormProperty id="formSearch" withFilters />

@@ -1,3 +1,5 @@
+import certs from "../pages/certs"
+
 export default (data) => {
   return(
     {
@@ -36,6 +38,18 @@ export default (data) => {
             image: data.home && data.home.about && data.home.about.banner && data.home.about.banner.image ? data.home.about.banner.image : require("../images/template-home-about-hero-background.jpg"),
             title: data.home && data.home.about && data.home.about.banner && data.home.about.banner.title ? data.home.about.banner.title : "Adquiere tu nuevo hogar en Casas Huechuraba",
             subTitle: data.home && data.home.about && data.home.about.banner && data.home.about.banner.subTitle ? data.home.about.banner.subTitle : "",
+            avatarN: require("../images/nancy2.jpg") ,
+            img1: require("../images/project1.jpg"),
+            img2: require("../images/project2.jpg"),
+            img3: require("../images/project3.jpg"),
+
+            avatarC: require("../images/cristina2.jpg"),
+            img4: require("../images/project4.jpg"),
+            img5: require("../images/project5.jpg"),
+            img6: require("../images/project6.jpg"),
+            img7: require("../images/project7.jpg"),
+            img8: require("../images/project8.jpg"),
+
             buttonText: data.home && data.home.about && data.home.about.banner && data.home.about.banner.buttonText ? data.home.about.banner.buttonText : "Conózcanos"
           }
         },  
@@ -78,6 +92,16 @@ export default (data) => {
       about:{
         hero: {
           background: data.about && data.about.hero && data.about.hero.background ? data.about.hero.background : require("../images/ambasTop.jpg"),
+          background1: data.about && data.about.hero && data.about.hero.background ? data.about.hero.background : require("../images/CertificacionesTop.jpg"),
+          background3: data.about && data.about.hero && data.about.hero.background ? data.about.hero.background3 : require("../images/casas.jpg"),
+          background4: data.about && data.about.hero && data.about.hero.background ? data.about.hero.background : require("../images/alianza.jpg"),
+          img1: require("../images/AlianzaNexxos.jpg"),
+          img2: require("../images/AlianzaProppit.jpg"),
+          img3: require("../images/AlianzaEstJuridico.jpg"),
+          img4: require("../images/ValentinaGomez.jpg"),
+          img5: require("../images/DanielMillan1.jpg"),
+          
+
           title: data.about && data.about.hero && data.about.hero.title ? data.about.hero.title : "Un equipo de profesionales especializados en el sector inmobiliario."
         },
         history: {
@@ -114,14 +138,14 @@ export default (data) => {
               avatar: require("../images/Nancy1.jpg"),
               cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
               email: "usuario1@example.com",
-              fullName: "Usuario 1",
+              fullName: "Nancy Godoy",
               phone: "+56 9 5555 5555"
             },
             {
-              avatar: require("../images/template-team-member-2.jpg"),
+              avatar: require("../images/Cristina1.jpg"),
               cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca.",
               email: "usuario2@example.com",
-              fullName: "Usuario 2",
+              fullName: "Cristina Arriagada",
               phone: "+56 9 5555 5555"
             }                         
           ]
@@ -129,8 +153,8 @@ export default (data) => {
         ubication: {
           title:  data.about && data.about.ubication && data.about.ubication.title ? data.about.ubication.title : "¿Necesitas vender, arrendar o comprar una propiedad? Somos tu socio perfecto"
         }
-      },
-      contact: {
+        },
+       contact: {
         map: {
           title: data.contact && data.contact.map && data.contact.map.title ? data.contact.map.title : "Encuéntranos en Sucursal Chicureo Camino a Chicureo 2 km. esquina Los Ingleses Colina - Santiago",
           subTitle: data.contact && data.contact.map && data.contact.map.subTitle ? data.contact.map.subTitle : "234"
@@ -138,6 +162,34 @@ export default (data) => {
         title: data.contact && data.contact.title ? data.contact.title : "¿Dudas? ¿Consultas? Estamos aquí para ayudarlo.",
         subTitle: data.contact && data.contact.subTitle ? data.contact.subTitle : "Envienos un mensaje y uno de nuestros asesores se pondra en contacto a la brevedad"        
       },
+      certs1: {
+        
+          avatarN: require("../images/nancy2.jpg") ,
+          img1: require("../images/project4.jpg"),
+          img2: require("../images/project5.jpg"),
+          img3: require("../images/project6.jpg"),
+          img4: require("../images/project7.jpg"),
+          img5: require("../images/project8.jpg"),
+       
+          cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca.",
+          email: "usuario2@example.com",
+          fullName: "Cristina Arriagada",
+          phone: "+56 9 5555 5555"
+                 
+      },
+      certs2: {
+        
+        avatarC: require("../images/cristina2.jpg"),
+        img1: require("../images/project1.jpg"),
+        img2: require("../images/project2.jpg"),
+        img3: require("../images/project3.jpg"),
+
+        cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca.",
+        email: "usuario2@example.com",
+        fullName: "Cristina Arriagada",
+        phone: "+56 9 5555 5555"
+               
+    },
     }
   )
 }

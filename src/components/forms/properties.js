@@ -287,7 +287,7 @@ export default ({ withFilters, id }) => {
             </Row>
           </FormInnerCont>
         )}
-        <MoreFilterCont>
+       {/*} <MoreFilterCont>
           {withFilters && (
             <FilterButton onClick={handleFilter}>
               {filter ? (
@@ -303,7 +303,7 @@ export default ({ withFilters, id }) => {
               )}
             </FilterButton>
           )}
-        </MoreFilterCont>
+        </MoreFilterCont>*/}
       </Form>
     </Container>
   );

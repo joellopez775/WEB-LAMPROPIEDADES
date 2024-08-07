@@ -82,14 +82,14 @@ export default () => {
             <Subtitle>+56 9 9758 0771</Subtitle>
           </ContactColumn>
           <ContactColumn>
-            <ContactButton href="https://maps.google.com" title="Ver Ubicación" rel="noopener" target="_blank">
+            <ContactButton href="https://maps.google.com" title="Ver Ubicación" rel="noopener" target="_blank" hoverColor="white">
               <EnvironmentOutlined />
             </ContactButton>
             <ContactText>Casas Huechuraba</ContactText>
             <Subtitle>Pedro Fontova</Subtitle>
           </ContactColumn>
           <ContactColumn>
-            <ContactButton href="mailto:contacto@casashuechuraba.cl" title="Enviar Email" rel="noopener" target="_blank" hoverColor="#D44638">
+            <ContactButton href="mailto:contacto@casashuechuraba.cl" title="Enviar Email" rel="noopener" target="_blank" hoverColor="white">
               <MailOutlined />
             </ContactButton>
             <ContactText>Email</ContactText>
