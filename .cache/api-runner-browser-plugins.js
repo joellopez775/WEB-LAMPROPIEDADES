@@ -3,5 +3,5 @@ module.exports = [{
       options: {"plugins":[],"layout":"/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/src/layout/index.js"},
     },{
       plugin: require('../node_modules/gatsby-plugin-manifest/gatsby-browser.js'),
-      options: {"plugins":[],"icon":"src/images/icon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"3132fcccbf082808a33d56e5c40224cd"},
+      options: {"plugins":[],"icon":"src/images/icon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"e997529b65735776dcb19227e25e0bff"},
     }]

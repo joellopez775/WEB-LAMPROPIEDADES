@@ -11,6 +11,7 @@ const SectionCustom = styled(Section)`
   border-right: none;
   padding: 2rem 0;
   background-color: #e1d1b0;
+  margin-bottom: 0;
 `;
 
 const Title = styled.p`
@@ -25,7 +26,8 @@ const ContactRow = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 2rem
+  
 `;
 
 const ContactColumn = styled.div`

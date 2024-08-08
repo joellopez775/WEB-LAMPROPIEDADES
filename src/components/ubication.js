@@ -23,16 +23,14 @@ export default ()=> {
   const state = useContext(context);
   return(
     <MainCont>
-      <Title>
-        {state.contact.map.title}
-      </Title>
+      
       {
         state.lat && (
           <Map
           lat={parseFloat(state.lat)}
           lng={parseFloat(state.lng)}
           height={300}
-          zoom={3}
+          zoom={15}
         />         
         )
       } 

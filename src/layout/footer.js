@@ -27,6 +27,14 @@ const InfoList = styled.ul`
   margin-top: 10rem;
 `;
 
+const Divider = styled.div`
+  width: 300px;
+  height: 1px;
+  background-color: #eace9d;
+  margin: -1.5rem 0; /* Aumenta el margen superior e inferior */
+  margin-left: auto; /* Desplaza la línea hacia la derecha */
+`;
+
 const Logosw = styled.li`
   color: #eace9d;
   font-size: .8rem;
@@ -196,7 +204,7 @@ export default () => {
                 state.address && (
                   <InfoItem>
                     {state.address}
-                  </InfoItem>                  
+                   </InfoItem>                  
                 )
               }
               {
@@ -208,7 +216,7 @@ export default () => {
                     <InfoLink title="Enviar WhatsApp" rel="noopener" target="_blank" href={`https://api.whatsapp.com/send?phone=${state.movil.replace(/\s/g,'')}&text=Hola,%20estoy%20visitando%20su%20sitio%20Web%20y%20quisiera%20comunicarme%20con%20uestedes.`}>
                       {state.movil}
                     </InfoLink>
-                  </InfoItem>                      
+                  </InfoItem>                     
                 )
               } 
               {
@@ -295,7 +303,9 @@ export default () => {
               <BackTop onClick={() => window.scrollTo(0, 0)} href="#top">
                 <UpOutlined />
               </BackTop>                        
-              <NavTitle>UBICACIÓN</NavTitle>
+              <NavTitle>UBICACIÓN
+      
+              </NavTitle>
 
               <Minimap lat={-33.363633} lng={-70.667457} /> {/* Reemplaza con la latitud y longitud deseada */}
               <SocialCont>

@@ -216,7 +216,7 @@ export default ({ children, location }) => {
             <meta charSet="utf-8" />
             <meta name="description" content="Conectamos clientes con propiedades. Optimiza, gestiona y vende más. La nueva plataforma inmobiliaria que te ayuda a optimizar tu tiempo de trabajo y obtener mejores resultados. Pruébalo gratis por 15 días." />
             <meta name="keywords" content="clasihome, clasipro, clasihome propiedades chile, tecnología chile, software" />
-            <title>Clasihome - Software Inmobilario de Chile</title>
+            <title>Casas Huechuraba - Gestión Inmobiliaria</title>
             <link rel="canonical" href="https://clasihome.com/" />
             <meta property="og:url" content="https://clasihome.com/" />
             <meta property="og:title" content="Clasihome - Software Inmobilario de Chile" />

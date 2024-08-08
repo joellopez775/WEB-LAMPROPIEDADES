@@ -10,16 +10,18 @@ export default styled.textarea`
   font-size: 1rem;
   font-family: 'Rubik', sans-serif;
   margin-bottom: 1rem;
-  border: ${props => props.gray ? "1px solid #dee2e6" : "none"};       
-  &:disabled      {
+  border: ${props => props.gray ? "1px solid #dee2e6" : "none"};
+  position: relative; /* Añadido para permitir el uso de left o right */
+  left: -6px; /* Mueve el textarea 10px a la izquierda, ajusta este valor según sea necesario */
+  &:disabled {
     background-color: rgba(0, 0, 0, .1);
     cursor: not-allowed;
-  }        
+  }
   @media(min-width: 768px){
     margin-bottom: ${props => props.withMargin ? "1rem" : "0"};
     box-shadow: ${props => props.shadow ? "0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)" : "none"};
   }
-  &::placeholder{
+  &::placeholder {
     color: #878787;
   }
-`
+`;
