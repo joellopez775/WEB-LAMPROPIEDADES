@@ -11,7 +11,7 @@ import Carousel from '../carousels/properties';
 // Estilo para el título
 const Title = styled.h1`
   font-size: 1.5rem;
-  text-align: left;
+  text-align: center;
   margin-bottom: 2rem;
   font-weight: 800;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -62,7 +62,7 @@ export default () => {
     <Section id="properties">
       <Container>
         <Title>
-          <BlueText>PROPIEDADES</BlueText> <GoldText>DESTACADAS</GoldText>
+          <BlueText>PROPIEDADES DESTACADAS</BlueText>      
         </Title>
         <br />
         <PropertiesCarouselCont>

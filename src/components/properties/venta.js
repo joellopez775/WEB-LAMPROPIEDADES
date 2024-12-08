@@ -81,8 +81,8 @@ export default ()=> {
   const getProperties = async ()=> {
     setQuery({ loading: true });
     try{
-      const baseUrl = `https://wsnzm.clasihome.com:3443/api/conv/properties/`;
-      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=office&id=&propertyType=&operation=VENTA&commune=&stringSearch=&priceMin=&priceMax=&value=&valueUf=&totalAreaFrom=&totalAreaTo=&bedrooms=&bathrooms=&currency=CLP`;
+      const baseUrl = `https://decymas.com:3443/api/conv/properties/`;
+      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=${typeId}&id=${officeId}`;
       const url = baseUrl + params;
       const data = await fetch(url);
       const result = await data.json();
@@ -96,28 +96,28 @@ export default ()=> {
  
 
   const handlePaginate =(val)=> {
-      //console.log(val.selected);
-      //const url = urlBuilder('/properties',{...params, page: val.selected} );
-      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=office&id=&propertyType=&operation=VENTA&commune=&stringSearch=&priceMin=&priceMax=&value=&valueUf=&totalAreaFrom=&totalAreaTo=&bedrooms=&bathrooms=&currency=CLP`;
-      const url = `/properties/` + params + `&page=${val.selected}`;
-      navigate(url);
-  };
+    console.log(val.selected);
+    //const url = urlBuilder('/properties',{...params, page: val.selected} );
+    const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=${typeId}&id=${officeId}`;
+    const url = `/properties/` + params + `&page=${val.selected}`;
+    navigate(url);
+};
 
-  useEffect(()=>{
-    getProperties();
-  },[location.search]);
+useEffect(()=>{
+  getProperties();
+},[location.search]);
 
-  if(query.loading) return(
-    <LoadingCont>
-      <LoadingOutlined />
-    </LoadingCont>
-  )
+if(query.loading) return(
+  <LoadingCont>
+    <LoadingOutlined />
+  </LoadingCont>
+)
 
-  if(query.error) return(
-    <LoadingCont>
-      <span>Error de conexión</span>
-    </LoadingCont>    
-  )
+if(query.error) return(
+  <LoadingCont>
+    <span>Error de conexión</span>
+  </LoadingCont>    
+)
 
   return(
     <Section height="100vh">

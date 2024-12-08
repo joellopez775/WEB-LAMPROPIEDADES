@@ -81,8 +81,8 @@ export default ()=> {
   const getProperties = async ()=> {
     setQuery({ loading: true });
     try{
-      const baseUrl = `https://wsnzm.clasihome.com:3443/api/conv/properties/`;
-      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&email=&limit=12&typeId=${typeId}&id=${officeId}`;
+      const baseUrl = `https://decymas.com:3443/api/conv/properties/`;
+      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=${typeId}&id=${officeId}`;
       const url = baseUrl + params;
       const data = await fetch(url);
       const result = await data.json();
@@ -93,12 +93,11 @@ export default ()=> {
       setQuery({ loading: false, data: null, error: true });
     }
   }
- 
 
   const handlePaginate =(val)=> {
-      //console.log(val.selected);
+      console.log(val.selected);
       //const url = urlBuilder('/properties',{...params, page: val.selected} );
-      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&email=&limit=12&typeId=${typeId}&id=${officeId}`;
+      const params = location.search ? location.search : `?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=${typeId}&id=${officeId}`;
       const url = `/properties/` + params + `&page=${val.selected}`;
       navigate(url);
   };
@@ -122,8 +121,9 @@ export default ()=> {
   return(
     <Section height="100vh">
       <Container>
-      <br/>
+        
         <Row>
+        
           {
             query.data.properties.map((property) => (
               <Col key={property._id} xs={12} md={4} lg={3} style={{ marginBottom: "2rem" }}>
@@ -161,7 +161,7 @@ export default ()=> {
               <Col xs={12}>
                 <NoDataCont>
                   <FrownOutlined />
-                  <p>No se encontraron resultados</p>
+                  <p>No se encontraron resultado</p>
                 </NoDataCont>                
               </Col>
             )

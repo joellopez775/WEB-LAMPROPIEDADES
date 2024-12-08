@@ -123,13 +123,13 @@ const BlueText = styled.span`
 
 // Estilo para el texto en dorado
 const GoldText = styled.span`
-  color: #eace9d;
+  color:  #14226b;
 `;
 
 const Divider = styled.div`
   width: 700px;
   height: 1px;
-  background-color: #eace9d;
+  background-color:  #14226b;
   margin: 1rem 0; /* Ajusta el margen superior e inferior */
   margin-left: 0; /* Alinea la línea a la izquierda */
 `;
@@ -304,19 +304,6 @@ export default () => {
                       <a href={`mailto:${state.email}`} style={{ color: 'gray' }}>{state.email}</a>
                     </InfoItem>
                   )}
-                 {state.address && (
-  <InfoItem>
-    <EnvironmentOutlined style={{ marginRight: '0.5rem' }} />
-    <a
-      href={`https://www.google.com/maps?q=${-33.3656874267796},${-70.67052627676532}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ color: 'gray' }}
-    >
-      {state.address}
-    </a>
-  </InfoItem>
-)}
                   <SocialCont>
                     {state.facebook && (
                       <SocialLink href={state.facebook} rel="noopener" target="_blank">

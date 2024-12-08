@@ -14,7 +14,7 @@ export default ()=> {
     <Fragment>
       <Hero />
       <History />
-      <Team />
+    
   
       <Contact />
     </Fragment>

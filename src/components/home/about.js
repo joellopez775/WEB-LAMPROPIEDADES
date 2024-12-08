@@ -34,9 +34,9 @@ const Title = styled.h1`
   font-size: 2rem; /* Aumenta el tamaño de la fuente */
   text-align: left;
   margin-bottom: 2rem;
-  color: #14226b;
+  color: white;
   font-weight: 800;
-  text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.8); /* Sombra blanca más grande */
+ 
 `;
 
 const SubTitle = styled.p`

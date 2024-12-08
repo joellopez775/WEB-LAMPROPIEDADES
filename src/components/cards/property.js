@@ -1,213 +1,181 @@
 import React, { useContext } from 'react';
-import context from '../../context';
 import styled from 'styled-components';
-import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { priceFormat, truncate } from '../../util';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { Site, Surface, Parking, Bath, Rooms } from '../../icons';
+import context from '../../context';
+import { priceFormat } from '../../util';
 
+// Estilos
 const AniLinkCustom = styled(AniLink)`
   color: inherit !important;
   display: block;
-  border-radius: 6px;
+  border-radius: 30px;
   overflow: hidden;
-  transition: 250ms ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, .15),
-              0px 4px 8px rgba(0, 0, 0, .15),
-              0px 8px 16px rgba(0, 0, 0, .15),
-              0px 16px 32px rgba(0, 0, 0, .15);
+    transform: scale(1.02);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   }
-`
+`;
 
 const Card = styled.div`
-  width: 95%;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, .1);
-  min-height: 400px;
   position: relative;
-  overflow: hidden; /* Asegura que el zoom de la imagen no se salga del contenedor */
-  @media(min-width: 768px){
-    width: 100%;
-    margin: 0;
-  }
-`
-
-const Image = styled.div`
   width: 100%;
-  padding-top: 75%;
-  background-image: url("${props => props.src}");
+  height: 450px;
+  border-radius: 30px;
+  overflow: hidden;
+  background-image: ${({ src }) => (src ? `url(${src})` : 'none')};
   background-size: cover;
   background-position: center;
-  transition: transform 0.5s ease; /* Transición suave para el zoom */
-  
-  ${Card}:hover & {
-    transform: scale(1.1); /* Ajusta el nivel de zoom */
-  }
-`
+  display: flex;
+  margin-bottom: 0.2rem;
+  margin-top: 0.2rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: ${({ src }) => (!src ? '#ccc' : 'transparent')};
+  box-sizing: border-box;
+`;
 
-const InfoCont = styled.div`
-  padding: 0 1rem;
-`
+const GradientOverlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1;
+`;
 
-const TitleCont = styled.div`
-  padding-top: 1rem;
-  font-size: .8rem;
-`
+const InfoContainer = styled.div`
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1rem;
+  margin-bottom: -1rem;
+  color: white;
+  text-align: center;
+`;
 
-const Title = styled.h6`
-  margin: 0;
-  min-height: 50px;
-  font-weight: bold; /* Esto hace que el texto sea en negrita */
+const Title = styled.h4`
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+`;
+
+const Subtitle = styled.p`
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
 `;
 
 const Price = styled.p`
-  margin: 0;
-  color: ${props => props.theme.primaryColor}; /* Color del texto */
-  font-size: 1.2rem;
-  font-weight: bold; /* Pone el texto en negrita */
+  margin: 0.3rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
 `;
 
-const Locacion = styled.p`
-  margin: 0;
-  color: gray;
-`
-
-const Code = styled.p`
-  margin: 0;
-`
-
-const CharsList = styled.ul`
-  padding: 0;
-  margin: 0;
-  color: gray;
-  font-size: .8rem;
-  padding: 1rem 0;
-  
-  span {
-    margin-left: .5rem;
-  }
-`
-
-const CharItem = styled.li`
+const Stats = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0 1rem;
+  color: white;
+  text-transform: uppercase;
+  z-index: 2;
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding-bottom: .3rem;
-  
-  .value {
-    margin-left: .5rem;
+
+  span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-top: 0.3rem;
   }
-`
-
-const getCategoryByCode = (title) => {
-  if (typeof title !== 'string') {
-    return 'Categoría Desconocida';
-  }
-
-  const categoryMapping = {
-    '4': 'Parcela',
-    '5': 'Local',
-    '1': 'Casa',
-    '3': 'Oficina',
-    '2': 'Departamento',
-  };
-
-  const digits = title.match(/\d/g);
-
-  const foundCategory = digits ? digits.find(digit => categoryMapping[digit]) : null;
-
-  return categoryMapping[foundCategory] || 'Categoría Desconocida';
-};
+`;
 
 const Tag = styled.div`
-  background-color: ${props => props.theme.primaryColor};
+  background-color: ${({ theme }) => theme.primaryColor};
   color: #fff;
   position: absolute;
-  top: ${props => props.top};
-  left: ${props => props.left};
-  font-size: 15px;
-  padding: .1rem 2rem;
+  top: 15px;
+  left: -40px;
   transform: rotate(-45deg);
-  box-shadow: 0px 2px 15px rgba(0,0,0, .5);
-`
+  padding: 0.3rem 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+`;
 
 export default ({
   mainImage,
   title,
   value,
   currency,
-  code,
-  comune,
+  valueUf,
   ubication,
   characteristics,
   _id,
   operation,
-  status
+  status,
 }) => {
   const state = useContext(context);
-  const visibleTag = status === "VENDIDA" || status === "ARRENDADA";
-  
+  const visibleTag = status === 'VENDIDA' || status === 'ARRENDADA';
+
   return (
-    <AniLinkCustom  to={`/property?id=${_id}`} duration={.5}>
-      <Card>
-        {
-          visibleTag && (
-            <Tag
-              top={status === "VENDIDA" ? "22px" : "28px"}
-              left={status === "VENDIDA" ? "-32px" : "-38px"}
-            >
-              {status}
-            </Tag>
-          )
-        }
-        <Image src={mainImage} />
-        <InfoCont>
-          <TitleCont>
-            <Title>
-              {getCategoryByCode(title)} {title.replace(/\d+/, '').trim()}
-            </Title>
-            <Locacion>
-              <strong>
-                {ubication.commune} -
-              </strong>
-              {ubication.region}
-            </Locacion>
-            <br />
-            <Price>
-              {
-                `${currency} ${currency === "UF" ? value : priceFormat(value)}`
-              }
-            </Price>
-          </TitleCont>
-          {/*} <CharsList>
-            <CharItem>
-              <Site />
-              <span>
-                {ubication.commune}
-              </span>
-            </CharItem>
-            {
-              characteristics.filter(char => (
-                char.name === "Superficie total" ||
-                char.name === "Superficie útil" ||
-                char.name === "Dormitorios" ||
-                char.name === "Baños" ||
-                char.name === "Estacionamientos"
-              )).map((char, index) => (
-                <CharItem key={index}>
-                  {
-                    char.name === "Superficie total" && <Surface /> ||
-                    char.name === "Superficie útil" && <Surface /> ||
-                    char.name === "Habitaciones" && <Rooms /> ||
-                    char.name === "Baños" && <Bath /> ||
-                    char.name === "Estacionamientos" && <Parking />
-                  }
-                  <span>{char.name} {char.value} {char.name === "Superficie total" && "mt2" || char.name === "Superficie útil" && "mt2"}</span>
-                </CharItem>
-              ))
-            }
-          </CharsList> */}     
-        </InfoCont>
+    <AniLinkCustom paintDrip hex={state.primaryColor} to={`/property?id=${_id}`} duration={0.5}>
+      <Card src={mainImage}>
+        {visibleTag && <Tag>{status}</Tag>}
+        <GradientOverlay />
+        <InfoContainer>
+          <Title>{`${title}`}</Title>
+          <Subtitle>{ubication?.commune || 'Sin ubicación'}</Subtitle>
+          <Price>
+            {currency !== 'UF' ? (
+              <>
+                CLP {priceFormat(value)}
+                <br />
+                <span>UF {valueUf}</span>
+              </>
+            ) : (
+              <>
+                UF {valueUf}
+                <br />
+                <span>CLP {priceFormat(value)}</span>
+              </>
+            )}
+          </Price>
+        </InfoContainer>
+
+        <Stats>
+          <StatItem>
+            <Rooms />
+            <span>
+              {characteristics?.find((char) => char.name === 'Dormitorios')?.value || 0}
+            </span>
+          </StatItem>
+          <StatItem>
+            <Bath />
+            <span>
+              {characteristics?.find((char) => char.name === 'Baños')?.value || 0}
+            </span>
+          </StatItem>
+          <StatItem>
+            <Surface />
+            <span>
+              {characteristics?.find((char) => char.name === 'Superficie total')?.value || 0}
+            </span>
+          </StatItem>
+        </Stats>
       </Card>
     </AniLinkCustom>
-  )
-}
+  );
+};

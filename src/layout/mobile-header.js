@@ -6,19 +6,21 @@ import { Container } from 'react-bootstrap';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { FacebookOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 
-import Logo from './logo';
+import Logo from './logoF';
 import RateBar from './ratebar';
 import { NavLink } from '../styled-components';
 
 const Header = styled.header`
   //overflow: hidden;
-  background-color: ${props => props.theme.primaryColor};
-  position: fixed;
+  background-color: trasnparent;
+  position: flex;
   width: 100%;
-  top: 0;
+  height:2rem;
+  top: 2rem;
   left: 0;
   padding: .5rem 0;
   z-index: 1000;
+  margin-bottom: 0.8rem;
 `
 const Navigation = styled.nav`
   display: flex;
@@ -67,7 +69,7 @@ export default ()=> {
             height={15}
             strokeWidth={2}
             rotate={0}
-            color="#ffffff"
+            color="#544987"
             borderRadius={0}
             animationDuration={0.5}
           />          

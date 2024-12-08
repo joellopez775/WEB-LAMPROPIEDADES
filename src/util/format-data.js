@@ -6,9 +6,9 @@ export default (data) => {
       builderId: data._id ? data._id : "5fb2a5f3ea262c2e14e462ad",
       typeId: data.user ? "user" : "office",
       officeId: data.user ? data.user : data.office,
-      primaryColor: data.primaryColor ? data.primaryColor : "#eace9d ",
+      primaryColor: data.primaryColor ? data.primaryColor : "#2a1c6a ",
       address: data.address ? data.address : "Pedro Fontova, Huechuraba, Santiago",
-      email: data.email ? data.email : "contacto@casashuechuraba.cl",
+      email: data.email ? data.email : "contacto@lampropiedades.cl",
       facebook: data.facebook ? data.facebook : "https://facebook.com",
       twitter: data.twitter ? data.twitter : "https://twitter.com",
       instagram: data.instagram ? data.instagram : "https://instagram.com",
@@ -26,7 +26,7 @@ export default (data) => {
           background1: data.home && data.home.hero && data.home.hero.background ? data.home.hero.background1 : require("../images/slider4.jpg"),
           background2: data.home && data.home.hero && data.home.hero.background ? data.home.hero.background2 : require("../images/slider5.jpg"),
           background3: data.home && data.home.hero && data.home.hero.background ? data.home.hero.background3 : require("../images/slider6.jpg"),
-          title: data.home && data.home.hero && data.home.hero.title ? data.home.hero.title : "Bienvenidos a Casas Huechuraba"
+          title: data.home && data.home.hero && data.home.hero.title ? data.home.hero.title : "¡Bienvenido a Lam Properties!",
         },        
         properties: {
           title: data.home && data.home.properties && data.home.properties.title ? data.home.properties.title : "Contamos con una selección exclusiva de propiedades.",
@@ -37,7 +37,7 @@ export default (data) => {
         about: {
           banner: {
             image: data.home && data.home.about && data.home.about.banner && data.home.about.banner.image ? data.home.about.banner.image : require("../images/template-home-about-hero-background.jpg"),
-            title: data.home && data.home.about && data.home.about.banner && data.home.about.banner.title ? data.home.about.banner.title : "Adquiere tu nuevo hogar en Casas Huechuraba",
+            title: data.home && data.home.about && data.home.about.banner && data.home.about.banner.title ? data.home.about.banner.title : "🔑 Encuentra la propiedad ideal para ti.",
             subTitle: data.home && data.home.about && data.home.about.banner && data.home.about.banner.subTitle ? data.home.about.banner.subTitle : "",
             avatarN: require("../images/nancy2.jpg") ,
             img1: require("../images/project1.jpg"),
@@ -106,9 +106,19 @@ export default (data) => {
           title: data.about && data.about.hero && data.about.hero.title ? data.about.hero.title : "Un equipo de profesionales especializados en el sector inmobiliario."
         },
         history: {
-          background: data.about && data.about.history && data.about.history.background ? data.about.history.background : require("../images/template-about-history-background.jpg"),
-          description: data.about && data.about.history && data.about.history.description ? data.about.history.description : "<p>Somos clasihome, una empresa con varios años de trayectoria en el dinámico mercado inmobiliario, reconocidos por un servicio altamente personalizado y eficiente.</p><p>Nuestra gran fortaleza es el profundo conocimiento comercial inmobiliario que nos permite agregar valor a todos los proyectos que emprendemos y servicios que entregamos.<p/>",
-          title: data.about && data.about.history && data.about.history.title ? data.about.history.title : "Nuestra Historia"
+          background: data.about && data.about.history && data.about.history.background 
+            ? data.about.history.background 
+            : require("../images/template-about-history-background.jpg"),
+            
+          background2: require("../images/sssss.jpg"), // Agregar correctamente otra propiedad
+        
+          description: data.about && data.about.history && data.about.history.description 
+            ? data.about.history.description 
+            : "<p>Somos clasihome, una empresa con varios años de trayectoria en el dinámico mercado inmobiliario, reconocidos por un servicio altamente personalizado y eficiente.</p><p>Nuestra gran fortaleza es el profundo conocimiento comercial inmobiliario que nos permite agregar valor a todos los proyectos que emprendemos y servicios que entregamos.<p/>",
+        
+          title: data.about && data.about.history && data.about.history.title 
+            ? data.about.history.title 
+            : "Nuestra Historia",
         },
         description: {
           items: data.about && data.about.description && data.about.description.items.length ? data.about.description.items : [

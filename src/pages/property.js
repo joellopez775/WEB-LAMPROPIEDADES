@@ -25,7 +25,7 @@ const Title = styled.p`
 
 export default ({ location })=> {
   const params = new URLSearchParams(location.search);
-  const url = `https://wsnzm.clasihome.com:3443/api/conv/property?propertyId=${params.get("id")}`;
+  const url = `https://decymas.com:3443/api/conv/property?propertyId=${params.get("id")}`;
   const [query, setQuery] = useReducer((current, next) => ({ ...current, ...next }),{
     loading: true,
     error: false,
@@ -68,10 +68,10 @@ export default ({ location })=> {
         <Hero />
         <Container>
           <Row>
-            <Col xs={12} md={7}>
+            <Col xs={12} md={12}>
               <Property />
             </Col>
-            <Col xs={12} md={5}>
+            <Col xs={12} md={12}>
               <Contact />
             </Col>            
             <Col xs={12}>

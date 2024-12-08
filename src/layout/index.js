@@ -138,7 +138,7 @@ export default ({ children, location }) => {
 
   const getFeatured = async(id, typeId, maxProperties)=> {
     try{
-      const data = await fetch(`https://wsnzm.clasihome.com:3443/api/conv/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
+      const data = await fetch(`https://decymas.com:3443/api/conv/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       //const data = await fetch(`https://api.clasihome.com/rest/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       const result = await data.json();
       return result;
@@ -216,7 +216,7 @@ export default ({ children, location }) => {
             <meta charSet="utf-8" />
             <meta name="description" content="Conectamos clientes con propiedades. Optimiza, gestiona y vende más. La nueva plataforma inmobiliaria que te ayuda a optimizar tu tiempo de trabajo y obtener mejores resultados. Pruébalo gratis por 15 días." />
             <meta name="keywords" content="clasihome, clasipro, clasihome propiedades chile, tecnología chile, software" />
-            <title>Casas Huechuraba - Gestión Inmobiliaria</title>
+            <title>LAM Propiedades</title>
             <link rel="canonical" href="https://clasihome.com/" />
             <meta property="og:url" content="https://clasihome.com/" />
             <meta property="og:title" content="Clasihome - Software Inmobilario de Chile" />

@@ -30,13 +30,13 @@ const InfoList = styled.ul`
 const Divider = styled.div`
   width: 300px;
   height: 1px;
-  background-color: #eace9d;
+  background-color: white;
   margin: -1.5rem 0; /* Aumenta el margen superior e inferior */
   margin-left: auto; /* Desplaza la línea hacia la derecha */
 `;
 
 const Logosw = styled.li`
-  color: #eace9d;
+  color:white;
   font-size: .8rem;
   margin-bottom: .1rem;
   display: flex;
@@ -72,7 +72,7 @@ const NavCont = styled.div`
 `;
 
 const NavTitle = styled.h2`
-  color: #eace9d; /* Color dorado */
+  color: white; /* Color dorado */
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   font-weight: bold; /* Cambiado de 'font_width' a 'font-weight' */
@@ -200,13 +200,13 @@ export default () => {
               <Logo />
             </AniLink>
             <InfoList>
-              {
+              {/*
                 state.address && (
                   <InfoItem>
                     {state.address}
                    </InfoItem>                  
                 )
-              }
+              */}
               {
                 state.movil && (
                   <InfoItem>

@@ -9,9 +9,9 @@ export default styled.button`
   align-items: center;
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => props.primary ? props.theme.primaryColor : "black"};
+  border-color: ${props => props.primary ? props.theme.primaryColor : "white"};
   background-color: ${props => props.outlined ? "transparent" : props.theme.primaryColor};    
-  color: ${props => props.outlined && props.primary ? props.theme.primaryColor : "black"};
+  color: ${props => props.outlined && props.primary ? props.theme.primaryColor : "white"};
   border-radius: 3px;
   transition: 250ms ease;
   margin-bottom: 1rem;

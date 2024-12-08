@@ -6,7 +6,7 @@ import { Section } from '../../styled-components';
 import FormProperty from '../forms/properties'
 
 const MainCont = styled(Section)`
-  background-image: linear-gradient(white, #eace9d), url("${props => props.src}");
+  background-image: linear-gradient(white, #f3f3f2), url("${props => props.src}");
 
   display: flex;
   flex-direction: column;

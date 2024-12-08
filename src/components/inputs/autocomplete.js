@@ -7,30 +7,27 @@ import { navigate } from 'gatsby';
 
 const InputLabel = styled.label`
   background-color: #fff;
-  position: absolute; /* Usa posicionamiento absoluto */
-  left:-.6rem; /* Ajusta este valor según sea necesario */
-  top: 50%; /* Centra verticalmente si es necesario */
-  transform: translateY(-50%); /* Ajuste vertical si es necesario */
+  position: relative;
   display: flex;
   align-items: center;
-  height: 44px;
-  width: 100%; /* Puedes ajustar el ancho si es necesario */
+  height: 60px;
+  width: 100%;
+  margin-bottom: 1rem;
   border: ${props => props.gray ? "1px solid #000000" : "none" };
   padding-right: 16px;
   color: ${props => props.primary ? props.theme.primaryColor : "#212121"};
+  border-radius: 28px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12);
-  
   @media(min-width: 768px){
     margin-bottom: ${props => props.vertical ? "1rem" : "0"};
     box-shadow: ${props => props.shadow ? "0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12)" : "none"};
   }
 `
 
-
 const Input = styled.input`
   background-color: transparent;
   //box-shadow: 0px 0px 1px rgba(0, 0, 0, .12), 0px 0px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12);
-
+  border-radius: 3px;
   padding: 5px;
   height: 44px;
   width: 100%;
@@ -38,7 +35,7 @@ const Input = styled.input`
   font-size: 1rem;
   color: ${props => props.primary ? props.theme.primaryColor : "#878787"};
   &::placeholder{
-    color: black;
+    color: ${props => props.gray ? "#8695A1" : "#5a5a5a"};
   } 
 `
 const OptionsMainCont = styled.ul`
@@ -51,6 +48,7 @@ const OptionsMainCont = styled.ul`
   padding: 1rem 5px;
   border: 1px solid #cecece;
   z-index: 100;
+  list-style: none;
 `
 const Option = styled.button`
   background-color: transparent;
@@ -60,6 +58,7 @@ const Option = styled.button`
   transition: 250ms ease;
   display: flex;
   text-align: left;
+  position: relative;
   &:hover{
     color: ${props => props.theme.primaryColor} !important;
   }
@@ -67,7 +66,7 @@ const Option = styled.button`
 const PropertyImg = styled.img`
   width: 60px;
   height: 60px;
- 
+  border-radius: 2px;
   object-fit: cover;
   object-position: center;
 `
@@ -117,7 +116,7 @@ export default ({ selected, onSelect, id, placeholder, options, gray, shadow, pr
       setState({ loading: true });
       try{
         setValue(value);
-        const propertiesUrl = `https://api.clasihome.com/rest/properties?id=${contextData.officeId}&typeId=${contextData.typeId}&status=PUBLICADA&stringSearch=${value}`;
+        const propertiesUrl = `https://wsnzm.clasihome.com:3443/api/conv/properties?id=${contextData.officeId}&typeId=${contextData.typeId}&status=PUBLICADA&stringSearch=${value}`;
         const data = await fetch(propertiesUrl);
         const result = await data.json();
         setState({ data: value.length ? result.properties : [], loading: false });

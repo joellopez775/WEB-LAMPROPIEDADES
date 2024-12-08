@@ -173,9 +173,8 @@ export default ({
             </Locacion>
             <br />
             <Price>
-              {
-                `${currency} ${currency === "UF" ? value : priceFormat(value)}`
-              }
+              {currency} {priceFormat(value)}{' '}
+              <span>{currency === 'CLP' && `(UF ${valueUf})`}</span>
             </Price>
           </TitleCont>
           {/*} <CharsList>

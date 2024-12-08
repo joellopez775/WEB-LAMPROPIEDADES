@@ -1,195 +1,171 @@
-import React, { useContext } from 'react';
-import context from '../context';
-import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { Container } from "react-bootstrap";
+import { FacebookOutlined, TwitterOutlined, LinkedinOutlined, InstagramOutlined } from "@ant-design/icons";
+import context from "../context";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { WhatsAppOutlined, MailOutlined } from '@ant-design/icons';
+import Logo from "./logo";
 
-import RateBar from './ratebar';
-import Logo from './logo';
-import { NavLink, NavButton } from '../styled-components';
-
+// Estilos principales
 const Header = styled.header`
-  background-color: rgba(20, 34, 107, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 9.5rem;
+  position: relative;
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    display: none; /* Ocultar en dispositivos móviles */
+  }
 `;
 
-const Navigation = styled.nav`
-  padding: 1rem 0;
+const TopBar = styled.div`
+  background-color: white;
+  padding: 3rem 0; /* Aumentar padding para acomodar el logo */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+`;
+
+const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
 `;
 
-const NavItem = styled.li`
-  margin: 0 -.4rem; /* Ajusta el margen horizontal */
+const ContactInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #333;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: black; /* Color negro por defecto */
+    font-size: 1.2rem;
+
+    &:hover {
+      color: #0188ca; /* Cambiar a azul al hacer hover */
+    }
+  }
+`;
+
+const NavBar = styled.nav`
+  background-color: #0b2b63; /* Fondo azul oscuro */
+  padding: 0.4rem 0;
 `;
 
 const NavList = styled.ul`
   list-style: none;
-  padding: 0;
   margin: 0;
-  position: relative; 
-  top: 6rem; 
-  display: ${props => props.horizontal ? "flex" : "block"};
-  text-align: center;
-  gap: -12rem; /* Añade esta línea para controlar el espacio entre los ítems */
-`;
-const ContactButton = styled.a`
-  display: none;
-  @media(min-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    top: -1rem;
-    right: -31.5rem;
-    background-color: transparent;
-    color: #eace9d;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    transition: 250ms ease;
-    font-size: 2.1rem;
-    border: none;
-    z-index: 1000;
-
-    &:hover {
-      color: ${props => props.phone ? props.theme.primaryColor : "white"};
-    }
-  }
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 `;
 
-const ContactButton2 = styled.a`
-  display: none;
-  @media(min-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    top: -4.7rem;
-    right: -50.5rem;
-    background-color: transparent;
-    color: #eace9d;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    transition: 250ms ease;
-    font-size: 2.1rem;
-    border: none;
-    z-index: 1000;
+const NavItem = styled.li``;
 
-    &:hover {
-      color: ${props => props.phone ? props.theme.primaryColor : "white"};
-    }
-  }
-`;
-
-const ContactText = styled.span`
-  display: inline-flex;
-  align-items: center;
-  margin-left: 1rem;
-  color: #eace9d;
-  font-size: 1rem;
+/* Usamos "a" directamente para asegurar el hover */
+const NavLink = styled(AniLink)`
+  color: white; /* Color blanco predeterminado */
+  font-size: 0.9rem;
+  text-transform: uppercase;
   font-weight: bold;
-  white-space: nowrap;
-  width: auto;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: #0188ca; /* Cambiar a azul al hacer hover o focus */
+  }
+
+  &:visited {
+    color: white; /* Aseguramos que el color visitado sea blanco */
+  }
+
+  &:active {
+    color: white; /* Forzar blanco en enlaces activos */
+  }
 `;
 
-const Divider = styled.div`
-  width: 700px;
-  height: 1px;
-  background-color: #eace9d;
-  margin: -4.5rem 0; /* Aumenta el margen superior e inferior */
-  margin-left: auto; /* Desplaza la línea hacia la derecha */
-`;
-
-
+// Componente principal
 export default ({ dark }) => {
   const state = useContext(context);
 
   return (
-    <Header className="d-none d-lg-block">
-      <Container>
-   
-        <Navigation>
-          <AniLink to="/" duration={.5}>
-            <Logo dark={dark} light={!dark} />
-          </AniLink>
-          <NavList horizontal>
+    <Header>
+      {/* Barra superior */}
+      <TopBar>
+        <Container className="d-flex justify-content-between align-items-center">
+          {/* Logo en el contenedor blanco */}
+          <LogoWrapper>
+            <AniLink to="/">
+              <Logo dark={dark} light={!dark} />
+            </AniLink>
+          </LogoWrapper>
+
+          {/* Información de contacto */}
+          <ContactInfo>
+            <span>📞 +56 9 8279 7858</span>
+            <span>📞 +56 9 9023 7039</span>
+            <span>📞 +56 9 7456 5736</span>
+          </ContactInfo>
+
+          {/* Íconos de redes sociales */}
+          <SocialIcons>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <FacebookOutlined />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <TwitterOutlined />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <LinkedinOutlined />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <InstagramOutlined />
+            </a>
+          </SocialIcons>
+        </Container>
+      </TopBar>
+
+      {/* Barra de navegación */}
+      <NavBar>
+        <Container>
+          <NavList>
             <NavItem>
-              <AniLink to="/" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  INICIO
-                </NavLink>
-              </AniLink>
+              <NavLink to="/">Inicio</NavLink> {/* Enlace a Inicio */}
             </NavItem>
             <NavItem>
-              <AniLink to="/about" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  EMPRESA
-                </NavLink>
-              </AniLink>
+              <NavLink to="/venta">Venta</NavLink>
             </NavItem>
             <NavItem>
-              <AniLink to="/certs" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  CERTIFICACIONES
-                </NavLink>
-              </AniLink>
+              <NavLink to="/arriendo">Arriendo</NavLink>
             </NavItem>
             <NavItem>
-              <AniLink to="/venta" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  VENTA
-                </NavLink>
-              </AniLink>
+              <NavLink to="/about">Empresa</NavLink>
             </NavItem>
             <NavItem>
-              <AniLink to="/arriendo" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  ARRIENDO
-                </NavLink>
-              </AniLink>
+              <NavLink to="/noticias">Noticias y Calendario</NavLink>
             </NavItem>
             <NavItem>
-              <AniLink to="/alianzas" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  ALIANZAS
-                </NavLink>
-              </AniLink>
+              <NavLink to="/contact">Contáctenos</NavLink>
             </NavItem>
             <NavItem>
-              <AniLink to="/contact" duration={.5}>
-                <NavLink dark={dark} light={!dark}>
-                  CONTACTO
-                </NavLink>
-              </AniLink>
+              <NavLink to="/cita">Cita</NavLink>
             </NavItem>
           </NavList>
-          
-        </Navigation>
-        
-        
-       
-        <ContactButton title="Enviar WhatsApp" rel="noopener" target="_blank" href={`https://api.whatsapp.com/send?phone=${state.movil.replace(/\s/g,'')}&text=Hola,%20estoy%20visitando%20su%20sitio%20Web%20y%20quisiera%20comunicarme%20con%20ustedes.`}>
-          
-          <WhatsAppOutlined />
-
-          <ContactText>+56997580771</ContactText>
-        </ContactButton>
-        <ContactButton2 title="Enviar un email" href={`mailto:${state.email}`}>
-          <MailOutlined />
-          <ContactText>contacto@casashuechuraba.cl</ContactText>
-        </ContactButton2>
-        <Divider />
-
-      </Container>
+        </Container>
+      </NavBar>
     </Header>
   );
 };

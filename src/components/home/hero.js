@@ -16,7 +16,7 @@ const MainCont = styled(Section)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
 `;
 
 const BackgroundWrapper = styled.div`
@@ -24,7 +24,6 @@ const BackgroundWrapper = styled.div`
   width: 300%; /* Triple el ancho del contenedor para acomodar las imágenes */
   height: 100%;
   position: absolute;
-  top: 0;
   left: 0;
   transition: transform 1s ease-in-out; /* Transición suave */
 `;
@@ -135,16 +134,7 @@ export default () => {
      
 
       <Container>
-      <SearchOptionCont id="search">
-          <SearchOption active={!byCode} onClick={() => setByCode(false)}>
-            Buscar propiedad
-            <ButtonLine active={!byCode} />
-          </SearchOption>
-          <SearchOption active={byCode} onClick={() => setByCode(true)}>
-            Buscar por código
-            <ButtonLine active={byCode} />
-          </SearchOption>
-        </SearchOptionCont>
+     
         {byCode ? <FormCode /> : <FormProperty id="formSearch" />}
       </Container>
       <DownLink id="downButton" href="#properties">

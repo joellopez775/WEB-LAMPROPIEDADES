@@ -1,24 +1,24 @@
 var plugins = [{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
       options: {"plugins":[],"displayName":true,"fileName":true,"minify":true,"namespace":"","transpileTemplateLiterals":true,"pure":false},
     },{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[],"output":"/sitemap.xml","createLinkInHead":true},
     },{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-transition-link/gatsby-ssr'),
-      options: {"plugins":[],"layout":"/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/src/layout/index.js"},
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-transition-link/gatsby-ssr'),
+      options: {"plugins":[],"layout":"/Users/joellopez/Documentos/Proyectos/casashuechuraba/src/layout/index.js"},
     },{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
       options: {"plugins":[],"fonts":["Lato:400","Raleway:300,500"],"display":"swap"},
     },{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-react-leaflet/gatsby-ssr'),
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-react-leaflet/gatsby-ssr'),
       options: {"plugins":[],"linkStyles":true},
     },{
-      plugin: require('/Users/joellopez/Documents/Trabajo/Mis Proyectos/casashuechuraba/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"icon":"src/images/icon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"e997529b65735776dcb19227e25e0bff"},
+      plugin: require('/Users/joellopez/Documentos/Proyectos/casashuechuraba/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      options: {"plugins":[],"icon":"src/images/icon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"17ad402b5fdbf680efa0f99df1438e05"},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
